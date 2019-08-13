@@ -4,13 +4,13 @@ node('master'){
     
     stage('Git Clone/Pull'){
         git branch: 'dev', 
-			url: 'https://github.com/javahometech/my-app'
+			url: 'https://github.com/reechasoni/my-app'
     }
 	
 	stage('Build Docker Image'){
 		sh "mvn clean package"
 		sh "mv target/*.war target/myweb.war"
-		sh "docker build -t kammana/my-app:1.0 ."
+		sh "docker build -t reechasoni/my-app:1.0 ."
 	}
 	
 	stage('Push Image'){
